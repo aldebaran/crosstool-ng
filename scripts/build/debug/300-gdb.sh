@@ -257,6 +257,7 @@ do_debug_gdb_build() {
         if [ "${CT_GDB_NATIVE_STATIC}" = "y" ]; then
             CC_for_gdb="${CT_TARGET}-gcc -static"
             LD_for_gdb="${CT_TARGET}-ld -static"
+            native_extra_config+=( --disable-inprocess-agent )
         else
             CC_for_gdb="${CT_TARGET}-gcc"
             LD_for_gdb="${CT_TARGET}-ld"
